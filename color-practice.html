@@ -1,17 +1,87 @@
-<header class="section gradient-header">
-  <h1>Color Practice</h1>
-</header>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Color Practice | Omar Portfolio</title>
+  <link rel="stylesheet" href="./styles/main.css">
+  <style>
+    /* Page-specific styles for Color Practice */
+    .color-header {
+      background: linear-gradient(90deg, #6366f1, #22d3ee);
+      color: white;
+      padding: 2rem 1rem;
+      text-align: center;
+      border-radius: var(--radius);
+      margin-bottom: 2rem;
+    }
 
-<p class="text-red">Red text</p>
-<p class="text-blue">Blue text</p>
-<p class="text-green">Green text</p>
+    .color-boxes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin: 2rem 0;
+    }
 
-<div class="color-box red"></div>
-<div class="color-box blue"></div>
-<div class="color-box green"></div>
-<div class="color-box yellow"></div>
-<div class="color-box purple"></div>
+    .color-box {
+      width: 80px;
+      height: 80px;
+      border-radius: var(--radius);
+      display: inline-block;
+    }
 
-<button class="button">Hover Me</button>
+    .red { background: red; }
+    .blue { background: blue; }
+    .green { background: green; }
+    .yellow { background: yellow; }
+    .purple { background: purple; }
 
-<footer class="footer">Footer Section</footer>
+    .color-button {
+      display: inline-block;
+      margin-top: 2rem;
+    }
+
+    footer.color-footer {
+      background: #111827;
+      color: var(--muted);
+      padding: 1.5rem;
+      text-align: center;
+      border-radius: var(--radius);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header with gradient -->
+  <header class="color-header">
+    <h1>Color Practice</h1>
+    <p>Experimenting with text colors, background colors, and button hover effects.</p>
+  </header>
+
+  <!-- Colored paragraphs -->
+  <section class="section">
+    <p style="color:red;">This is a red paragraph.</p>
+    <p style="color:blue;">This is a blue paragraph.</p>
+    <p style="color:green;">This is a green paragraph.</p>
+  </section>
+
+  <!-- 5 colored boxes -->
+  <section class="color-boxes">
+    <div class="color-box red"></div>
+    <div class="color-box blue"></div>
+    <div class="color-box green"></div>
+    <div class="color-box yellow"></div>
+    <div class="color-box purple"></div>
+  </section>
+
+  <!-- Button with hover -->
+  <section style="text-align:center;">
+    <button class="button color-button">Hover Me!</button>
+  </section>
+
+  <!-- Footer -->
+  <footer class="color-footer">
+    <p>&copy; 2025 Omar. All rights reserved.</p>
+  </footer>
+</body>
+</html>
