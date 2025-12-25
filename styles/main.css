@@ -1,54 +1,125 @@
-/* styles/main.css */
+/* =========================
+   GOOGLE FONTS
+========================= */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Roboto&display=swap');
+
+/* =========================
+   CSS VARIABLES
+========================= */
 :root {
   --bg: #0f172a;
   --card: #111827;
   --text: #e5e7eb;
   --muted: #9ca3af;
   --accent: #22d3ee;
+  --accent-soft: #67e8f9;
+  --shadow: rgba(0, 0, 0, 0.35);
+  --radius: 14px;
 }
 
+/* =========================
+   GLOBAL BASE
+========================= */
 * { box-sizing: border-box; }
-
 html, body {
-  margin: 0;
-  padding: 0;
+  margin: 0; padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif;
+  font-family: 'Roboto', system-ui, -apple-system, Segoe UI, Arial, sans-serif;
   line-height: 1.6;
+  scroll-behavior: smooth;
 }
+h1,h2,h3 { font-family: 'Poppins', sans-serif; }
 
-.sr-only {
-  position: absolute; left: -9999px;
-}
-
+/* =========================
+   NAVIGATION
+========================= */
 .nav {
   display: flex; gap: 1rem; list-style: none; padding: 1rem; margin: 0;
-  background: rgba(255,255,255,0.04);
+  background: rgba(255,255,255,0.05);
   backdrop-filter: blur(6px);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
-.nav a { color: var(--text); text-decoration: none; }
-.nav a:hover { color: var(--accent); }
+.nav a { color: var(--text); text-decoration: none; font-weight:500; transition: all 0.3s ease; }
+.nav a:hover { color: var(--accent); transform: scale(1.05); }
 
+/* =========================
+   HERO
+========================= */
 .hero {
-  display: grid; grid-template-columns: 180px 1fr; gap: 1.5rem;
-  align-items: center; padding: 2rem 1rem;
+  display: grid; grid-template-columns: 180px 1fr; gap:1.5rem; align-items:center; padding:3rem 1rem;
 }
-.avatar { border-radius: 50%; border: 3px solid var(--accent); }
+.avatar { border-radius:50%; border:3px solid var(--accent); transition: transform 0.3s ease; }
+.avatar:hover { transform: scale(1.05); }
+.subtitle { color: var(--muted); margin:0.25rem 0 0.75rem; }
 
-.subtitle { color: var(--muted); margin: 0.25rem 0 0.75rem; }
-
-.section { padding: 1rem; margin: 1rem; background: var(--card); border-radius: 12px; }
-
-.table {
-  width: 100%; border-collapse: collapse; overflow: hidden; border-radius: 8px;
+/* =========================
+   SECTIONS
+========================= */
+.section {
+  padding:2rem 1.5rem; margin:2rem 0;
+  background: var(--card); border-radius:var(--radius);
+  box-shadow: 0 10px 30px var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.table th, .table td { border: 1px solid #1f2937; padding: 0.75rem; text-align: left; }
-.table thead th { background: #111827; }
+.section:hover { transform: translateY(-3px); box-shadow: 0 15px 35px var(--shadow); }
 
-.footer { padding: 1.5rem; text-align: center; color: var(--muted); }
+/* About + Education split */
+.about-education {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
 
-@media (max-width: 640px) {
-  .hero { grid-template-columns: 1fr; text-align: center; }
-  .nav { flex-wrap: wrap; justify-content: center; }
+/* =========================
+   BUTTONS
+========================= */
+button,.button {
+  background: var(--accent); color:#020617; padding:0.6rem 1.5rem;
+  border-radius:8px; border:none; cursor:pointer; font-weight:600;
+  transition: all 0.3s ease;
+}
+button:hover,.button:hover {
+  background: var(--accent-soft); transform: translateY(-2px) scale(1.05);
+}
+
+/* =========================
+   TABLE
+========================= */
+.table { width:100%; border-collapse:collapse; overflow:hidden; border-radius:8px; }
+.table th, .table td { border:1px solid #1f2937; padding:0.75rem; text-align:left; transition: background 0.3s; }
+.table th { background:#111827; }
+.table tr:hover { background: rgba(34,211,238,0.1); }
+
+/* =========================
+   CARDS
+========================= */
+.project-card {
+  background: var(--card); padding:1.5rem; border-radius:var(--radius);
+  box-shadow:0 10px 30px var(--shadow); text-align:center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover { transform: translateY(-8px); box-shadow:0 15px 40px var(--shadow); }
+.service-card { background: linear-gradient(135deg,#0ea5e9,#22d3ee); color:#020617; }
+.testimonial .avatar { border-radius:50%; border:3px solid var(--accent); margin-bottom:1rem; }
+.pricing.popular { border:2px solid var(--accent); }
+
+/* GRID CARDS */
+.projects { display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; }
+
+/* =========================
+   FOOTER
+========================= */
+.footer { padding:2rem 1rem; text-align:center; color:var(--muted); }
+
+/* =========================
+   RESPONSIVE
+========================= */
+@media (max-width:640px){
+  .hero { grid-template-columns:1fr; text-align:center; }
+  .nav { flex-wrap:wrap; justify-content:center; }
+  .projects { grid-template-columns:1fr; }
+  .about-education { grid-template-columns:1fr; }
 }
